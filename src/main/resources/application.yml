@@ -1,0 +1,33 @@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update #create update none  https://smpark1020.tistory.com/140?category=857916 참고(위험한 기능이기 때문에 주의할 것!)
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    
+  # google oauth2 setting
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 739208500337-sdagglm4vkfrhkvpor591rbi3idtcovp.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile,email
