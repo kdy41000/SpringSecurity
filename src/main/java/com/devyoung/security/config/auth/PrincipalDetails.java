@@ -24,9 +24,17 @@ import lombok.Data;
 public class PrincipalDetails implements UserDetails, OAuth2User {  //UserDetails, OAuth2User를 PrincipalDetails로 묶어서 PrincipalDetails를 인자로 받으면 2개 다 사용하능하도록 설정
 
 	private User user;  //콤포지션
+	private Map<String, Object> attributes;
 	
+	// 일반 로그인
 	public PrincipalDetails(User user) {
 		this.user = user;
+	}
+	
+	// OAuth 로그인
+	public PrincipalDetails(User user, Map<String, Object>attributes) {
+		this.user = user;
+		this.attributes = attributes;
 	}
 	
 	//UserDetails Override
